@@ -14,22 +14,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-#       - uses: actions/setup-node@v3
-#         with:
-#           node-version: 16
-#       - name: build backend
-#         run: |
-#           cd client
-#           npm install
-#           npm run build
-#       - name: Archive /dist as artifacts
-#         uses: actions/upload-artifact@v3
-#         with:
-#           name: dist
-#           path: client/dist
-#       -
-#         name: Set up QEMU
-#         uses: docker/setup-qemu-action@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: build backend
+        run: |
+          cd client
+          npm install
+          npm run build
+      - name: Archive /dist as artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist
+          path: client/dist
+
       - name: npm install and test-db
         run: |
           cd server
