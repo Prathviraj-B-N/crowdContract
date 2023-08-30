@@ -50,7 +50,7 @@ jobs:
         
       - name: build and push to DockerHub
         run: |
-          docker buildx build --platform linux/amd64,linux/arm64/v8 --push --tag rohitraman/crowdcontract-frontend:latest ./client
+          docker buildx build --platform linux/amd64,linux/arm64/v8 --push --tag prathvirajbn/crowdcontract-frontend:latest ./client
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
