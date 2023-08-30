@@ -1,2 +1,2 @@
 # crowdContract 
-This is our major project on devops
+This is our major project on devops 
