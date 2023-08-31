@@ -4,7 +4,7 @@ run-name: testAndCreateDockerImage 🚀
 on:
   push:
     paths:
-      - 'client/**'
+      # - 'client/**'
     branches:
       - main
       
@@ -30,9 +30,6 @@ jobs:
         with:
           name: dist
           path: client/dist
-      -
-        name: Set up QEMU
-        uses: docker/setup-qemu-action@v2
         
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
@@ -50,7 +47,7 @@ jobs:
         
       - name: build and push to DockerHub
         run: |
-          docker buildx build --platform linux/amd64,linux/arm64/v8 --push --tag rohitraman/crowdcontract-frontend:latest ./client
+          docker buildx build --platform linux/amd64,linux/arm64/v8 --push --tag prathvirajbn/crowdcontract-frontend:latest ./client
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
